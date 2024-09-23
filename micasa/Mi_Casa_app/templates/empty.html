@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablet en espera</title>
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            height: 100vh; /* Asegura que el fondo negro cubra toda la altura de la ventana */
+            color: white; /* Opcional: establece el color del texto a blanco por si lo necesitas */
+        }
+    </style>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script>
+        // Función que envía una solicitud POST a /new_index y luego redirige
+        function handleRequestAndRedirect() {
+            fetch('/new_index', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Server response received:", data.message);
+                // Redirige a la nueva URL
+                window.location.href = '{{ server_url }}/';
+            })
+            .catch(error => {
+                console.error('Error:', error); // Muestra errores en la consola
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Conectar con el servidor WebSocket
+            const socket = io();
+
+            // Escuchar el evento 'update_content'
+            socket.on('update_content', (data) => {
+                console.log("WebSocket event 'update_content' received");
+
+                // Llamar a handleRequestAndRedirect después de un retraso de 3 segundos
+                setTimeout(() => {
+                    handleRequestAndRedirect();
+                }, 3000); // 3000 milisegundos = 3 segundos
+            });
+
+            // Auto-refresh cada 1 segundo (1000 milisegundos)
+            setInterval(() => {
+                location.reload();
+            }, 1000); // Refrescar cada segundo
+        });
+    </script>
+</head>
+<body>
+    <!-- Sin contenido -->
+</body>
+</html>

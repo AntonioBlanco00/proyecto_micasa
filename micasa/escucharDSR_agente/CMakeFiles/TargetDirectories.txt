@@ -1,0 +1,5 @@
+/home/usuario/robocomp_ws/src/robocomp/components/micasa/escucharDSR_agente/CMakeFiles/edit_cache.dir
+/home/usuario/robocomp_ws/src/robocomp/components/micasa/escucharDSR_agente/CMakeFiles/rebuild_cache.dir
+/home/usuario/robocomp_ws/src/robocomp/components/micasa/escucharDSR_agente/src/CMakeFiles/ICES__home_usuario_robocomp_ws_src_robocomp_components_micasa_escucharDSR_agente_src.dir
+/home/usuario/robocomp_ws/src/robocomp/components/micasa/escucharDSR_agente/src/CMakeFiles/edit_cache.dir
+/home/usuario/robocomp_ws/src/robocomp/components/micasa/escucharDSR_agente/src/CMakeFiles/rebuild_cache.dir

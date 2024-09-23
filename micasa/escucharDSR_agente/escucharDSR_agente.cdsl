@@ -1,0 +1,10 @@
+Component escucharDSR_agente
+{
+    Communications
+    {
+ 
+    };
+    language python;
+    options dsr;
+};
+

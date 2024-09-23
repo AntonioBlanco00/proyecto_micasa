@@ -1,0 +1,6 @@
+/home/robolab-micasa/robocomp/components/micasa/schedule_manager/CMakeFiles/ui_mainUI.dir
+/home/robolab-micasa/robocomp/components/micasa/schedule_manager/CMakeFiles/edit_cache.dir
+/home/robolab-micasa/robocomp/components/micasa/schedule_manager/CMakeFiles/rebuild_cache.dir
+/home/robolab-micasa/robocomp/components/micasa/schedule_manager/src/CMakeFiles/ICES__home_robolab-micasa_robocomp_components_micasa_schedule_manager_src.dir
+/home/robolab-micasa/robocomp/components/micasa/schedule_manager/src/CMakeFiles/edit_cache.dir
+/home/robolab-micasa/robocomp/components/micasa/schedule_manager/src/CMakeFiles/rebuild_cache.dir

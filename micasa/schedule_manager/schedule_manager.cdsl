@@ -1,0 +1,13 @@
+import "VisualElements.idsl";
+
+Component schedule_manager
+{
+    Communications
+    {
+	requires VisualElements;
+    };
+    language python;
+    gui Qt(QWidget);
+    options dsr;
+};
+

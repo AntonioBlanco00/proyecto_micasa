@@ -1,0 +1,1756 @@
+{
+    "DSRModel": {
+        "symbols": {
+            "100": {
+                "attribute": {
+                    "color": {
+                        "type": 0,
+                        "value": "SeaGreen"
+                    },
+                    "level": {
+                        "type": 1,
+                        "value": 0
+                    },
+                    "pos_x": {
+                        "type": 2,
+                        "value": 38.959286
+                    },
+                    "pos_y": {
+                        "type": 2,
+                        "value": 2.434955
+                    }
+                },
+                "id": "100",
+                "links": [
+                    {
+                        "dst": "101",
+                        "label": "RT",
+                        "linkAttribute": {
+                            "rt_rotation_euler_xyz": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            },
+                            "rt_translation": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            }
+                        },
+                        "src": "100"
+                    },
+                    {
+                        "dst": "102",
+                        "label": "RT",
+                        "linkAttribute": {
+                            "rt_rotation_euler_xyz": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            },
+                            "rt_translation": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            }
+                        },
+                        "src": "100"
+                    },
+                    {
+                        "dst": "103",
+                        "label": "RT",
+                        "linkAttribute": {
+                            "rt_rotation_euler_xyz": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            },
+                            "rt_translation": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            }
+                        },
+                        "src": "100"
+                    },
+                    {
+                        "dst": "104",
+                        "label": "RT",
+                        "linkAttribute": {
+                            "rt_rotation_euler_xyz": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            },
+                            "rt_translation": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            }
+                        },
+                        "src": "100"
+                    },
+                    {
+                        "dst": "105",
+                        "label": "RT",
+                        "linkAttribute": {
+                            "rt_rotation_euler_xyz": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            },
+                            "rt_translation": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            }
+                        },
+                        "src": "100"
+                    },
+                    {
+                        "dst": "106",
+                        "label": "RT",
+                        "linkAttribute": {
+                            "rt_rotation_euler_xyz": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            },
+                            "rt_translation": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            }
+                        },
+                        "src": "100"
+                    },
+                    {
+                        "dst": "121",
+                        "label": "RT",
+                        "linkAttribute": {
+                            "rt_rotation_euler_xyz": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            },
+                            "rt_translation": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            }
+                        },
+                        "src": "100"
+                    },
+                    {
+                        "dst": "122",
+                        "label": "RT",
+                        "linkAttribute": {
+                            "rt_rotation_euler_xyz": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            },
+                            "rt_translation": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            }
+                        },
+                        "src": "100"
+                    },
+                    {
+                        "dst": "123",
+                        "label": "RT",
+                        "linkAttribute": {
+                            "rt_rotation_euler_xyz": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            },
+                            "rt_translation": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            }
+                        },
+                        "src": "100"
+                    },
+                    {
+                        "dst": "124",
+                        "label": "RT",
+                        "linkAttribute": {
+                            "rt_rotation_euler_xyz": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            },
+                            "rt_translation": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            }
+                        },
+                        "src": "100"
+                    },
+                    {
+                        "dst": "125",
+                        "label": "RT",
+                        "linkAttribute": {
+                            "rt_rotation_euler_xyz": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            },
+                            "rt_translation": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            }
+                        },
+                        "src": "100"
+                    },
+
+                    {
+                        "dst": "180265683815235585",
+                        "label": "has",
+                        "linkAttribute": {
+                        },
+                        "src": "100"
+                    }
+                ],
+                "name": "root",
+                "type": "house"
+            },
+            "101": {
+                "attribute": {
+                    "base_target_x": {
+                        "type": 2,
+                        "value": 3600
+                    },
+                    "base_target_y": {
+                        "type": 2,
+                        "value": 1550
+                    },
+                    "color": {
+                        "type": 0,
+                        "value": "Blue"
+                    },
+                    "level": {
+                        "type": 1,
+                        "value": 1
+                    },
+                    "parent": {
+                        "type": 7,
+                        "value": "100"
+                    },
+                    "pos_x": {
+                        "type": 2,
+                        "value": 428.607147
+                    },
+                    "pos_y": {
+                        "type": 2,
+                        "value": 102.647896
+                    }
+                },
+                "id": "101",
+                "links": [
+                    {
+                        "dst": "107",
+                        "label": "RT",
+                        "linkAttribute": {
+                            "rt_rotation_euler_xyz": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            },
+                            "rt_translation": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            }
+                        },
+                        "src": "101"
+                    },
+                    {
+                        "dst": "108",
+                        "label": "RT",
+                        "linkAttribute": {
+                            "rt_rotation_euler_xyz": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            },
+                            "rt_translation": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            }
+                        },
+                        "src": "101"
+                    },
+                    {
+                        "dst": "109",
+                        "label": "RT",
+                        "linkAttribute": {
+                            "rt_rotation_euler_xyz": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            },
+                            "rt_translation": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            }
+                        },
+                        "src": "101"
+                    }
+                ],
+                "name": "kitchen",
+                "type": "kitchen"
+            },
+            "102": {
+                "attribute": {
+                    "base_target_x": {
+                        "type": 2,
+                        "value": 3600
+                    },
+                    "base_target_y": {
+                        "type": 2,
+                        "value": 1550
+                    },
+                    "color": {
+                        "type": 0,
+                        "value": "Blue"
+                    },
+                    "level": {
+                        "type": 1,
+                        "value": 1
+                    },
+                    "parent": {
+                        "type": 7,
+                        "value": "100"
+                    },
+                    "pos_x": {
+                        "type": 2,
+                        "value": 42.642879
+                    },
+                    "pos_y": {
+                        "type": 2,
+                        "value": -326.133148
+                    }
+                },
+                "id": "102",
+                "links": [
+                    {
+                        "dst": "110",
+                        "label": "RT",
+                        "linkAttribute": {
+                            "rt_rotation_euler_xyz": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            },
+                            "rt_translation": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            }
+                        },
+                        "src": "102"
+                    },
+                    {
+                        "dst": "111",
+                        "label": "RT",
+                        "linkAttribute": {
+                            "rt_rotation_euler_xyz": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            },
+                            "rt_translation": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            }
+                        },
+                        "src": "102"
+                    }
+                ],
+                "name": "room_3",
+                "type": "room"
+            },
+            "103": {
+                "attribute": {
+                    "base_target_x": {
+                        "type": 2,
+                        "value": 3600
+                    },
+                    "base_target_y": {
+                        "type": 2,
+                        "value": 1550
+                    },
+                    "color": {
+                        "type": 0,
+                        "value": "Blue"
+                    },
+                    "level": {
+                        "type": 1,
+                        "value": 1
+                    },
+                    "parent": {
+                        "type": 7,
+                        "value": "100"
+                    },
+                    "pos_x": {
+                        "type": 2,
+                        "value": -349.749756
+                    },
+                    "pos_y": {
+                        "type": 2,
+                        "value": 254.786499
+                    }
+                },
+                "id": "103",
+                "links": [
+                    {
+                        "dst": "112",
+                        "label": "RT",
+                        "linkAttribute": {
+                            "rt_rotation_euler_xyz": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            },
+                            "rt_translation": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            }
+                        },
+                        "src": "103"
+                    },
+                    {
+                        "dst": "113",
+                        "label": "RT",
+                        "linkAttribute": {
+                            "rt_rotation_euler_xyz": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            },
+                            "rt_translation": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            }
+                        },
+                        "src": "103"
+                    }
+                ],
+                "name": "room_1",
+                "type": "room"
+            },
+            "104": {
+                "attribute": {
+                    "base_target_x": {
+                        "type": 2,
+                        "value": 3600
+                    },
+                    "base_target_y": {
+                        "type": 2,
+                        "value": 1550
+                    },
+                    "color": {
+                        "type": 0,
+                        "value": "Blue"
+                    },
+                    "level": {
+                        "type": 1,
+                        "value": 1
+                    },
+                    "parent": {
+                        "type": 7,
+                        "value": "100"
+                    },
+                    "pos_x": {
+                        "type": 2,
+                        "value": -416.529907
+                    },
+                    "pos_y": {
+                        "type": 2,
+                        "value": -141.754684
+                    }
+                },
+                "id": "104",
+                "links": [
+                    {
+                        "dst": "114",
+                        "label": "RT",
+                        "linkAttribute": {
+                            "rt_rotation_euler_xyz": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            },
+                            "rt_translation": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            }
+                        },
+                        "src": "104"
+                    },
+                    {
+                        "dst": "115",
+                        "label": "RT",
+                        "linkAttribute": {
+                            "rt_rotation_euler_xyz": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            },
+                            "rt_translation": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            }
+                        },
+                        "src": "104"
+                    }
+                ],
+                "name": "room_2",
+                "type": "room"
+            },
+            "105": {
+                "attribute": {
+                    "base_target_x": {
+                        "type": 2,
+                        "value": 3600
+                    },
+                    "base_target_y": {
+                        "type": 2,
+                        "value": 1550
+                    },
+                    "color": {
+                        "type": 0,
+                        "value": "Blue"
+                    },
+                    "level": {
+                        "type": 1,
+                        "value": 1
+                    },
+                    "parent": {
+                        "type": 7,
+                        "value": "100"
+                    },
+                    "pos_x": {
+                        "type": 2,
+                        "value": 436.295441
+                    },
+                    "pos_y": {
+                        "type": 2,
+                        "value": -220.452026
+                    }
+                },
+                "id": "105",
+                "links": [
+                    {
+                        "dst": "116",
+                        "label": "RT",
+                        "linkAttribute": {
+                            "rt_rotation_euler_xyz": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            },
+                            "rt_translation": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            }
+                        },
+                        "src": "105"
+                    },
+                    {
+                        "dst": "117",
+                        "label": "RT",
+                        "linkAttribute": {
+                            "rt_rotation_euler_xyz": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            },
+                            "rt_translation": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            }
+                        },
+                        "src": "105"
+                    },
+                    {
+                        "dst": "118",
+                        "label": "RT",
+                        "linkAttribute": {
+                            "rt_rotation_euler_xyz": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            },
+                            "rt_translation": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            }
+                        },
+                        "src": "105"
+                    }
+                ],
+                "name": "living_room",
+                "type": "room"
+            },
+            "106": {
+                "attribute": {
+                    "base_target_x": {
+                        "type": 2,
+                        "value": 3600
+                    },
+                    "base_target_y": {
+                        "type": 2,
+                        "value": 1550
+                    },
+                    "color": {
+                        "type": 0,
+                        "value": "Blue"
+                    },
+                    "level": {
+                        "type": 1,
+                        "value": 1
+                    },
+                    "parent": {
+                        "type": 7,
+                        "value": "100"
+                    },
+                    "pos_x": {
+                        "type": 2,
+                        "value": 18.10803
+                    },
+                    "pos_y": {
+                        "type": 2,
+                        "value": 288.413788
+                    }
+                },
+                "id": "106",
+                "links": [
+                    {
+                        "dst": "119",
+                        "label": "RT",
+                        "linkAttribute": {
+                            "rt_rotation_euler_xyz": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            },
+                            "rt_translation": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            }
+                        },
+                        "src": "106"
+                    },
+                    {
+                        "dst": "120",
+                        "label": "RT",
+                        "linkAttribute": {
+                            "rt_rotation_euler_xyz": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            },
+                            "rt_translation": {
+                                "type": 3,
+                                "value": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            }
+                        },
+                        "src": "106"
+                    }
+                ],
+                "name": "room_4",
+                "type": "room"
+            },
+            "107": {
+                "attribute": {
+                    "base_target_x": {
+                        "type": 2,
+                        "value": 3600
+                    },
+                    "base_target_y": {
+                        "type": 2,
+                        "value": 1550
+                    },
+                    "color": {
+                        "type": 0,
+                        "value": "Blue"
+                    },
+                    "humidity": {
+                        "type": 2,
+                        "value": 50
+                    },
+                    "illumination": {
+                        "type": 1,
+                        "value": 50
+                    },
+                    "level": {
+                        "type": 1,
+                        "value": 2
+                    },
+                    "parent": {
+                        "type": 7,
+                        "value": "101"
+                    },
+                    "pos_x": {
+                        "type": 2,
+                        "value": 604.349426
+                    },
+                    "pos_y": {
+                        "type": 2,
+                        "value": 7.492013
+                    },
+                    "temperature": {
+                        "type": 2,
+                        "value": 15
+                    }
+                },
+                "id": "107",
+                "links": [
+                ],
+                "name": "ambiental_cocina",
+                "type": "ambiental"
+            },
+            "108": {
+                "attribute": {
+                    "LAI": {
+                        "type": 2,
+                        "value": 166.700729
+                    },
+                    "LAImax": {
+                        "type": 2,
+                        "value": 166.700729
+                    },
+                    "LAeq": {
+                        "type": 2,
+                        "value": 166.700729
+                    },
+                    "base_target_x": {
+                        "type": 2,
+                        "value": 3600
+                    },
+                    "base_target_y": {
+                        "type": 2,
+                        "value": 1550
+                    },
+                    "color": {
+                        "type": 0,
+                        "value": "Blue"
+                    },
+                    "level": {
+                        "type": 1,
+                        "value": 2
+                    },
+                    "parent": {
+                        "type": 7,
+                        "value": "101"
+                    },
+                    "pos_x": {
+                        "type": 2,
+                        "value": 608.456299
+                    },
+                    "pos_y": {
+                        "type": 2,
+                        "value": 121.214439
+                    }
+                },
+                "id": "108",
+                "links": [
+                ],
+                "name": "sonido_cocina",
+                "type": "sound"
+            },
+            "109": {
+                "attribute": {
+                    "base_target_x": {
+                        "type": 2,
+                        "value": 3600
+                    },
+                    "base_target_y": {
+                        "type": 2,
+                        "value": 1550
+                    },
+                    "color": {
+                        "type": 0,
+                        "value": "Blue"
+                    },
+                    "level": {
+                        "type": 1,
+                        "value": 2
+                    },
+                    "parent": {
+                        "type": 7,
+                        "value": "101"
+                    },
+                    "pos_x": {
+                        "type": 2,
+                        "value": 528.356995
+                    },
+                    "pos_y": {
+                        "type": 2,
+                        "value": 262.686249
+                    },
+                    "state": {
+                         "type": 0,
+                        "value": "estado"
+                    },
+                    "voltage": {
+                         "type": 2,
+                        "value": 1258.22
+                    }
+                },
+                "id": "109",
+                "links": [
+                ],
+                "name": "actuador_1",
+                "type": "actuador"
+            },
+            "110": {
+                "attribute": {
+                    "base_target_x": {
+                        "type": 2,
+                        "value": 3600
+                    },
+                    "base_target_y": {
+                        "type": 2,
+                        "value": 1550
+                    },
+                    "color": {
+                        "type": 0,
+                        "value": "Blue"
+                    },
+                    "humidity": {
+                        "type": 2,
+                        "value": 50
+                    },
+                    "illumination": {
+                        "type": 1,
+                        "value": 50
+                    },
+                    "level": {
+                        "type": 1,
+                        "value": 2
+                    },
+                    "parent": {
+                        "type": 7,
+                        "value": "102"
+                    },
+                    "pos_x": {
+                        "type": 2,
+                        "value": -12.624386
+                    },
+                    "pos_y": {
+                        "type": 2,
+                        "value": -412.327332
+                    },
+                    "temperature": {
+                        "type": 2,
+                        "value": 15
+                    }
+                },
+                "id": "110",
+                "links": [
+                ],
+                "name": "ambiental_hab3",
+                "type": "ambiental"
+            },
+            "111": {
+                "attribute": {
+                    "LAI": {
+                        "type": 2,
+                        "value": 166.700729
+                    },
+                    "LAImax": {
+                        "type": 2,
+                        "value": 166.700729
+                    },
+                    "LAeq": {
+                        "type": 2,
+                        "value": 166.700729
+                    },
+                    "base_target_x": {
+                        "type": 2,
+                        "value": 3600
+                    },
+                    "base_target_y": {
+                        "type": 2,
+                        "value": 1550
+                    },
+                    "color": {
+                        "type": 0,
+                        "value": "Blue"
+                    },
+                    "level": {
+                        "type": 1,
+                        "value": 2
+                    },
+                    "parent": {
+                        "type": 7,
+                        "value": "102"
+                    },
+                    "pos_x": {
+                        "type": 2,
+                        "value": 259.214752
+                    },
+                    "pos_y": {
+                        "type": 2,
+                        "value": -420.110352
+                    }
+                },
+                "id": "111",
+                "links": [
+                ],
+                "name": "sonido_hab3",
+                "type": "sound"
+            },
+            "112": {
+                "attribute": {
+                    "base_target_x": {
+                        "type": 2,
+                        "value": 3600
+                    },
+                    "base_target_y": {
+                        "type": 2,
+                        "value": 1550
+                    },
+                    "color": {
+                        "type": 0,
+                        "value": "Blue"
+                    },
+                    "humidity": {
+                        "type": 2,
+                        "value": 50
+                    },
+                    "illumination": {
+                        "type": 1,
+                        "value": 50
+                    },
+                    "level": {
+                        "type": 1,
+                        "value": 2
+                    },
+                    "parent": {
+                        "type": 7,
+                        "value": "103"
+                    },
+                    "pos_x": {
+                        "type": 2,
+                        "value": -374.903259
+                    },
+                    "pos_y": {
+                        "type": 2,
+                        "value": 378.085358
+                    },
+                    "temperature": {
+                        "type": 2,
+                        "value": 15
+                    }
+                },
+                "id": "112",
+                "links": [
+                ],
+                "name": "ambiental_hab1",
+                "type": "ambiental"
+            },
+            "113": {
+                "attribute": {
+                    "LAI": {
+                        "type": 2,
+                        "value": 166.700729
+                    },
+                    "LAImax": {
+                        "type": 2,
+                        "value": 166.700729
+                    },
+                    "LAeq": {
+                        "type": 2,
+                        "value": 166.700729
+                    },
+                    "base_target_x": {
+                        "type": 2,
+                        "value": 3600
+                    },
+                    "base_target_y": {
+                        "type": 2,
+                        "value": 1550
+                    },
+                    "color": {
+                        "type": 0,
+                        "value": "Blue"
+                    },
+                    "level": {
+                        "type": 1,
+                        "value": 2
+                    },
+                    "parent": {
+                        "type": 7,
+                        "value": "103"
+                    },
+                    "pos_x": {
+                        "type": 2,
+                        "value": -463.731445
+                    },
+                    "pos_y": {
+                        "type": 2,
+                        "value": 187.397842
+                    }
+                },
+                "id": "113",
+                "links": [
+                ],
+                "name": "sonido_hab1",
+                "type": "sound"
+            },
+            "114": {
+                "attribute": {
+                    "base_target_x": {
+                        "type": 2,
+                        "value": 3600
+                    },
+                    "base_target_y": {
+                        "type": 2,
+                        "value": 1550
+                    },
+                    "color": {
+                        "type": 0,
+                        "value": "Blue"
+                    },
+                    "humidity": {
+                        "type": 2,
+                        "value": 50
+                    },
+                    "illumination": {
+                        "type": 1,
+                        "value": 50
+                    },
+                    "level": {
+                        "type": 1,
+                        "value": 2
+                    },
+                    "parent": {
+                        "type": 7,
+                        "value": "104"
+                    },
+                    "pos_x": {
+                        "type": 2,
+                        "value": -515.84436
+                    },
+                    "pos_y": {
+                        "type": 2,
+                        "value": -69.760033
+                    },
+                    "temperature": {
+                        "type": 2,
+                        "value": 15
+                    }
+                },
+                "id": "114",
+                "links": [
+                ],
+                "name": "ambiental_hab2",
+                "type": "ambiental"
+            },
+            "115": {
+                "attribute": {
+                    "LAI": {
+                        "type": 2,
+                        "value": 166.700729
+                    },
+                    "LAImax": {
+                        "type": 2,
+                        "value": 166.700729
+                    },
+                    "LAeq": {
+                        "type": 2,
+                        "value": 166.700729
+                    },
+                    "base_target_x": {
+                        "type": 2,
+                        "value": 3600
+                    },
+                    "base_target_y": {
+                        "type": 2,
+                        "value": 1550
+                    },
+                    "color": {
+                        "type": 0,
+                        "value": "Blue"
+                    },
+                    "level": {
+                        "type": 1,
+                        "value": 2
+                    },
+                    "parent": {
+                        "type": 7,
+                        "value": "104"
+                    },
+                    "pos_x": {
+                        "type": 2,
+                        "value": -437.858398
+                    },
+                    "pos_y": {
+                        "type": 2,
+                        "value": -238.444733
+                    }
+                },
+                "id": "115",
+                "links": [
+                ],
+                "name": "sonido_hab2",
+                "type": "sound"
+            },
+            "116": {
+                "attribute": {
+                    "base_target_x": {
+                        "type": 2,
+                        "value": 3600
+                    },
+                    "base_target_y": {
+                        "type": 2,
+                        "value": 1550
+                    },
+                    "color": {
+                        "type": 0,
+                        "value": "Blue"
+                    },
+                    "humidity": {
+                        "type": 2,
+                        "value": 50
+                    },
+                    "illumination": {
+                        "type": 1,
+                        "value": 50
+                    },
+                    "level": {
+                        "type": 1,
+                        "value": 2
+                    },
+                    "parent": {
+                        "type": 7,
+                        "value": "105"
+                    },
+                    "pos_x": {
+                        "type": 2,
+                        "value": 503.095764
+                    },
+                    "pos_y": {
+                        "type": 2,
+                        "value": -335.641174
+                    },
+                    "temperature": {
+                        "type": 2,
+                        "value": 15
+                    }
+                },
+                "id": "116",
+                "links": [
+                ],
+                "name": "ambiental_salon",
+                "type": "ambiental"
+            },
+            "117": {
+                "attribute": {
+                    "LAI": {
+                        "type": 2,
+                        "value": 166.700729
+                    },
+                    "LAImax": {
+                        "type": 2,
+                        "value": 166.700729
+                    },
+                    "LAeq": {
+                        "type": 2,
+                        "value": 166.700729
+                    },
+                    "base_target_x": {
+                        "type": 2,
+                        "value": 3600
+                    },
+                    "base_target_y": {
+                        "type": 2,
+                        "value": 1550
+                    },
+                    "color": {
+                        "type": 0,
+                        "value": "Blue"
+                    },
+                    "level": {
+                        "type": 1,
+                        "value": 2
+                    },
+                    "parent": {
+                        "type": 7,
+                        "value": "105"
+                    },
+                    "pos_x": {
+                        "type": 2,
+                        "value": 606.510742
+                    },
+                    "pos_y": {
+                        "type": 2,
+                        "value": -120.223328
+                    }
+                },
+                "id": "117",
+                "links": [
+                ],
+                "name": "sonido_salon",
+                "type": "sound"
+            },
+            "118": {
+                "attribute": {
+                    "base_target_x": {
+                        "type": 2,
+                        "value": 3600
+                    },
+                    "base_target_y": {
+                        "type": 2,
+                        "value": 1550
+                    },
+                    "color": {
+                        "type": 0,
+                        "value": "Blue"
+                    },
+                    "level": {
+                        "type": 1,
+                        "value": 2
+                    },
+                    "parent": {
+                        "type": 7,
+                        "value": "105"
+                    },
+                    "pos_x": {
+                        "type": 2,
+                        "value": 750.480469
+                    },
+                    "pos_y": {
+                        "type": 2,
+                        "value": -305.910706
+                    },
+                    "state": {
+                         "type": 0,
+                        "value": "estado"
+                    },
+                    "voltage": {
+                         "type": 2,
+                        "value": 1258.22
+                    }
+                },
+                "id": "118",
+                "links": [
+                ],
+                "name": "actuador_2",
+                "type": "actuador"
+            },
+            "119": {
+                "attribute": {
+                    "base_target_x": {
+                        "type": 2,
+                        "value": 3600
+                    },
+                    "base_target_y": {
+                        "type": 2,
+                        "value": 1550
+                    },
+                    "color": {
+                        "type": 0,
+                        "value": "Blue"
+                    },
+                    "humidity": {
+                        "type": 2,
+                        "value": 50
+                    },
+                    "illumination": {
+                        "type": 1,
+                        "value": 50
+                    },
+                    "level": {
+                        "type": 1,
+                        "value": 2
+                    },
+                    "parent": {
+                        "type": 7,
+                        "value": "106"
+                    },
+                    "pos_x": {
+                        "type": 2,
+                        "value": 161.305008
+                    },
+                    "pos_y": {
+                        "type": 2,
+                        "value": 379.344604
+                    },
+                    "temperature": {
+                        "type": 2,
+                        "value": 15
+                    }
+                },
+                "id": "119",
+                "links": [
+                ],
+                "name": "ambiental_hab4",
+                "type": "ambiental"
+            },
+            "120": {
+                "attribute": {
+                    "LAI": {
+                        "type": 2,
+                        "value": 166.700729
+                    },
+                    "LAImax": {
+                        "type": 2,
+                        "value": 166.700729
+                    },
+                    "LAeq": {
+                        "type": 2,
+                        "value": 166.700729
+                    },
+                    "base_target_x": {
+                        "type": 2,
+                        "value": 3600
+                    },
+                    "base_target_y": {
+                        "type": 2,
+                        "value": 1550
+                    },
+                    "color": {
+                        "type": 0,
+                        "value": "Blue"
+                    },
+                    "level": {
+                        "type": 1,
+                        "value": 2
+                    },
+                    "parent": {
+                        "type": 7,
+                        "value": "106"
+                    },
+                    "pos_x": {
+                        "type": 2,
+                        "value": -78.87677
+                    },
+                    "pos_y": {
+                        "type": 2,
+                        "value": 431.38031
+                    }
+                },
+                "id": "120",
+                "links": [
+                ],
+                "name": "sonido_hab4",
+                "type": "sound"
+            },
+            "121": {
+                "attribute": {
+                    "base_target_x": {
+                        "type": 2,
+                        "value": 3600
+                    },
+                    "base_target_y": {
+                        "type": 2,
+                        "value": 1550
+                    },
+                    "color": {
+                        "type": 0,
+                        "value": "Blue"
+                    },
+                    "level": {
+                        "type": 1,
+                        "value": 1
+                    },
+                    "parent": {
+                        "type": 7,
+                        "value": "100"
+                    },
+                    "pos_x": {
+                        "type": 2,
+                        "value": -413.122101
+                    },
+                    "pos_y": {
+                        "type": 2,
+                        "value": 3.94266
+                    }
+                },
+                "id": "121",
+                "links": [
+                ],
+                "name": "robolab2",
+                "type": "room"
+            },
+            "122": {
+                "attribute": {
+                    "base_target_x": {
+                        "type": 2,
+                        "value": 3600
+                    },
+                    "base_target_y": {
+                        "type": 2,
+                        "value": 1550
+                    },
+                    "color": {
+                        "type": 0,
+                        "value": "Blue"
+                    },
+                    "level": {
+                        "type": 1,
+                        "value": 1
+                    },
+                    "parent": {
+                        "type": 7,
+                        "value": "100"
+                    },
+                    "pos_x": {
+                        "type": 2,
+                        "value": -381.960938
+                    },
+                    "pos_y": {
+                        "type": 2,
+                        "value": 93.405319
+                    }
+                },
+                "id": "122",
+                "links": [
+                ],
+                "name": "robolab1",
+                "type": "room"
+            },
+            "123": {
+                "attribute": {
+                    "base_target_x": {
+                        "type": 2,
+                        "value": 3600
+                    },
+                    "base_target_y": {
+                        "type": 2,
+                        "value": 1550
+                    },
+                    "color": {
+                        "type": 0,
+                        "value": "Blue"
+                    },
+                    "level": {
+                        "type": 1,
+                        "value": 1
+                    },
+                    "parent": {
+                        "type": 7,
+                        "value": "100"
+                    },
+                    "pos_x": {
+                        "type": 2,
+                        "value": 291.21283
+                    },
+                    "pos_y": {
+                        "type": 2,
+                        "value": 208.596527
+                    }
+                },
+                "id": "123",
+                "links": [
+                ],
+                "name": "laundry",
+                "type": "room"
+            },
+            "124": {
+                "attribute": {
+                    "base_target_x": {
+                        "type": 2,
+                        "value": 3600
+                    },
+                    "base_target_y": {
+                        "type": 2,
+                        "value": 1550
+                    },
+                    "color": {
+                        "type": 0,
+                        "value": "Blue"
+                    },
+                    "level": {
+                        "type": 1,
+                        "value": 1
+                    },
+                    "parent": {
+                        "type": 7,
+                        "value": "100"
+                    },
+                    "pos_x": {
+                        "type": 2,
+                        "value": 391.206085
+                    },
+                    "pos_y": {
+                        "type": 2,
+                        "value": -55.596153
+                    }
+                },
+                "id": "124",
+                "links": [
+                ],
+                "name": "Reuniones",
+                "type": "room"
+            },
+            "125": {
+                "attribute": {
+                    "base_target_x": {
+                        "type": 2,
+                        "value": 3600
+                    },
+                    "base_target_y": {
+                        "type": 2,
+                        "value": 1550
+                    },
+                    "color": {
+                        "type": 0,
+                        "value": "Blue"
+                    },
+                    "level": {
+                        "type": 1,
+                        "value": 1
+                    },
+                    "parent": {
+                        "type": 7,
+                        "value": "100"
+                    },
+                    "pos_x": {
+                        "type": 2,
+                        "value": 260.678833
+                    },
+                    "pos_y": {
+                        "type": 2,
+                        "value": -320.040985
+                    }
+                },
+                "id": "125",
+                "links": [
+                ],
+                "name": "terrace",
+                "type": "room"
+            },
+            "180265683815235585": {
+                "attribute": {
+                    "agent_description": {
+                        "type": 0,
+                        "value": "TODO"
+                    },
+                    "agent_id": {
+                        "type": 6,
+                        "value": 1
+                    },
+                    "agent_name": {
+                        "type": 0,
+                        "value": "Participant_1 ( idserver )"
+                    },
+                    "cpu_usage": {
+                        "type": 2,
+                        "value": 6
+                    },
+                    "memory_usage": {
+                        "type": 6,
+                        "value": 240364
+                    },
+                    "num_procs": {
+                        "type": 6,
+                        "value": 32
+                    },
+                    "parent": {
+                        "type": 7,
+                        "value": "100"
+                    },
+                    "pos_x": {
+                        "type": 2,
+                        "value": -2.15006
+                    },
+                    "pos_y": {
+                        "type": 2,
+                        "value": -50.389839
+                    },
+                    "timestamp_agent": {
+                        "type": 7,
+                        "value": "1717411037644866382"
+                    },
+                    "timestamp_alivetime": {
+                        "type": 7,
+                        "value": "1717411037"
+                    },
+                    "timestamp_creation": {
+                        "type": 7,
+                        "value": "1716905920491593728"
+                    }
+                },
+                "id": "180265683815235585",
+                "links": [
+                ],
+                "name": "Participant_1 ( idserver )",
+                "type": "agent"
+            }
+        }
+    }
+}

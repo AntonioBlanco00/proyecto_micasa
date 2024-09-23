@@ -1,0 +1,15 @@
+
+# This property is used by the clients to connect to IceStorm.
+TopicManager.Proxy=IceStorm/TopicManager:default -p 9999
+
+
+tags_sn = 6e91,973b,59b1,d126,f192,a8cf
+tags_names = Etiqueta_2_6e91,Etiqueta_1_973b,Pulsera_1_59b1,Pulsera_2_d126,Colgante_1_f192,Colgante_2_a8cf
+
+Ice.Warn.Connections=0
+Ice.Trace.Network=0
+Ice.Trace.Protocol=0
+Ice.MessageSizeMax=20004800
+
+
+

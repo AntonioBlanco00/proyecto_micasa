@@ -1,0 +1,15 @@
+#serial_numbers
+# This property is used by the clients to connect to IceStorm.
+TopicManager.Proxy=IceStorm/TopicManager:default -p 9999
+
+
+tags_sn = b3ca,fc66,0b57,81b6
+tags_names = Reloj1_b3ca, Reloj2_fc66, Reloj3_0b57, Reloj4_81b6
+
+Ice.Warn.Connections=0
+Ice.Trace.Network=0
+Ice.Trace.Protocol=0
+Ice.MessageSizeMax=20004800
+
+
+

@@ -1,0 +1,13 @@
+import "VisualElementsPub.idsl";
+
+Component micasa_agent
+{
+    Communications
+    {
+        publishes VisualElementsPub;
+    };
+    language python;
+    gui Qt(QWidget);
+    options dsr;
+};
+

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emoticonos</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 90vw; /* Ajusta el ancho del contenedor al 90% del ancho de la pantalla */
+        }
+        .question {
+            margin: 1vw 0;
+            font-size: 2.5vw; /* Ajusta el tamaño del texto de la pregunta al 2.5% del ancho de la pantalla */
+            color: #333;
+        }
+        .emoticons {
+            display: flex;
+            justify-content: center;
+            gap: 2vw; /* Ajusta el espacio entre los emoticonos al 2% del ancho de la pantalla */
+            margin-top: 2vw;
+        }
+        .emoticon {
+            width: 20vw; /* Ajusta el tamaño de las imágenes al 20% del ancho de la pantalla */
+            max-width: 200px; /* Limita el tamaño máximo de las imágenes para evitar que sean demasiado grandes */
+            height: auto; /* Mantiene la proporción de las imágenes */
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .emoticon:hover {
+            transform: scale(1.1);
+        }
+        .thank-you {
+            display: none; /* Oculta el mensaje de agradecimiento inicialmente */
+            font-size: 6vw; /* Tamaño del texto de agradecimiento */
+            color: #4CAF50; /* Color verde para el texto de agradecimiento */
+            margin-top: 20px;
+        }
+        .hidden {
+            display: none; /* Clase para ocultar elementos */
+        }
+        #aviso-inactividad {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            font-size: 3vw;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+        #aviso-inactividad button {
+            font-size: 2vw;
+            padding: 1vw 2vw;
+            margin-top: 2vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="question">¿Cómo te has sentido mientras realizabas la tarea?</div>
+        <div class="emoticons">
+            <img src="{{ url_for('static', filename='images/1.png') }}" alt="Triste" class="emoticon" data-value="triste">
+            <img src="{{ url_for('static', filename='images/2.png') }}" alt="Descontento" class="emoticon" data-value="descontento">
+            <img src="{{ url_for('static', filename='images/3.png') }}" alt="Neutral" class="emoticon" data-value="neutral">
+            <img src="{{ url_for('static', filename='images/4.png') }}" alt="Contento" class="emoticon" data-value="contento">
+            <img src="{{ url_for('static', filename='images/5.png') }}" alt="Muy Contento" class="emoticon" data-value="muy-contento">
+        </div>
+        <div class="thank-you">¡GRACIAS!</div> <!-- Mensaje de agradecimiento -->
+    </div>
+
+    <div id="aviso-inactividad" class="finalizado">
+        <p>¿Sigues ahí?</p>
+        <button id="seguir-aqui-btn">Sí, sigo aquí</button>
+    </div>
+
+    <!-- Elemento de audio -->
+    <audio id="background-audio" src="static/valoracion/satisfaccion.mp3" preload="auto" autoplay></audio>
+
+    <!-- Elemento de audio para reproducir después de hacer clic -->
+    <audio id="click-audio" src="static/valoracion/gracias.mp3" preload="auto"></audio>
+
+    <audio id="audio-aviso" src="{{ url_for('static', filename=carpeta_aud + '/aviso.mp3') }}"></audio>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        document.querySelectorAll('.emoticon').forEach(emoticon => {
+
+            let tiempoInactividad = 0;
+            let tiempoMaximoInactividad = 60 * 1000; // 30 segundos (segun Alice)
+            let tiempoParaDespedida = 60 * 1000; // 30 segs adicional (segun Al)
+            let inactividadAvisada = false;
+
+            function reiniciarInactividad() {
+                tiempoInactividad = 0;
+                inactividadAvisada = false;
+                $("#aviso-inactividad").hide();
+                $("#audio-aviso")[0].pause();
+                $("#audio-aviso")[0].currentTime = 0;
+            }
+
+            $(document).on('click', function() {
+                reiniciarInactividad();
+            });
+
+            setInterval(function() {
+                tiempoInactividad += 1000;
+
+                if (tiempoInactividad >= tiempoMaximoInactividad && !inactividadAvisada) {
+                    $("#audio-aviso")[0].play();
+                    $("#aviso-inactividad").show();
+                    inactividadAvisada = true;
+                }
+
+                if (tiempoInactividad >= (tiempoMaximoInactividad + tiempoParaDespedida)) {
+                    // $("#audio-despedida")[0].play();
+                    // Hacer una solicitud POST usando Fetch API
+                    fetch('/obtener_info', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                            body: JSON.stringify({
+                                satisfaccion: "None",
+                                timeout: "Timeout"
+                            })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log("Respuesta del servidor:", data);
+                    })
+                    .catch(error => console.error("Error:", error));
+
+                        $.post("/reset_index", function(data) {
+                            console.log(data.message);
+                            window.location.href = '{{ server_url }}/';
+                        });
+                    // setTimeout(function(){
+                    //     $.post("/reset_index", function(data) {
+                    //         console.log(data.message);
+                    //         window.location.href = '{{ server_url }}/';
+                    //     });
+                    // }, 1000); // Espera 5 segundos tras la despedida para reiniciar el índice y redirigir
+                }
+            }, 1000);
+
+            $("#seguir-aqui-btn").click(function() {
+                reiniciarInactividad();
+            });
+
+            emoticon.addEventListener('click', function() {
+                const value = this.getAttribute('data-value');
+                console.log(`Emoticono seleccionado: ${value}`);
+
+                // Ocultar emoticonos y pregunta, mostrar mensaje de agradecimiento
+                document.querySelector('.question').style.display = 'none';
+                document.querySelector('.emoticons').style.display = 'none';
+                document.querySelector('.thank-you').style.display = 'block';
+
+                // Reproducir el segundo audio al hacer clic
+                const clickAudio = document.getElementById('click-audio');
+                clickAudio.play();
+
+                // Hacer una solicitud POST usando Fetch API
+                fetch('/obtener_info', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                                satisfaccion: value,
+                                timeout: "No"
+                            })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Respuesta del servidor:", data);
+                })
+                .catch(error => console.error("Error:", error));
+
+
+                // Enviar la solicitud POST
+                $.post("/reset_index", function(data) {
+                    console.log(data.message);
+                });
+
+                // Esperar 5 segundos antes de redirigir
+                setTimeout(() => {
+                    const url = '{{ server_url }}/';
+                    window.location.href = url;
+                }, 3500); // 5000 milisegundos = 5 segundos
+            });
+        });
+    </script>
+</body>
+</html>

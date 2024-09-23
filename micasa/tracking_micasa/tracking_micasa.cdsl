@@ -1,0 +1,12 @@
+import "VisualElements.idsl";
+Component tracking_micasa
+{
+    Communications
+    {
+       requires VisualElements;
+    };
+    language python;
+    gui Qt(QWidget);
+    options dsr;
+};
+

@@ -1,0 +1,18 @@
+# Proxies for required interfaces
+VisualElementsProxy = visualelements:tcp -h localhost -p 10002
+ip = localhost
+port = 5002
+user = 3
+csv_path = ../Mi_Casa_app/usuarios/rutina_diaria_user3.csv
+update_hour = 02:00:00
+
+
+
+
+Ice.Warn.Connections=0
+Ice.Trace.Network=0
+Ice.Trace.Protocol=0
+Ice.MessageSizeMax=20004800
+
+
+

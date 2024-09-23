@@ -1,0 +1,6 @@
+/home/usuario/robocomp_ws/src/robocomp/components/micasa/tracking_micasa/CMakeFiles/ui_mainUI.dir
+/home/usuario/robocomp_ws/src/robocomp/components/micasa/tracking_micasa/CMakeFiles/edit_cache.dir
+/home/usuario/robocomp_ws/src/robocomp/components/micasa/tracking_micasa/CMakeFiles/rebuild_cache.dir
+/home/usuario/robocomp_ws/src/robocomp/components/micasa/tracking_micasa/src/CMakeFiles/ICES__home_usuario_robocomp_ws_src_robocomp_components_micasa_tracking_micasa_src.dir
+/home/usuario/robocomp_ws/src/robocomp/components/micasa/tracking_micasa/src/CMakeFiles/edit_cache.dir
+/home/usuario/robocomp_ws/src/robocomp/components/micasa/tracking_micasa/src/CMakeFiles/rebuild_cache.dir

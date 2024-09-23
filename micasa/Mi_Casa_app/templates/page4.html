@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea Interactiva</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        .button-container div {
+            margin: 0 30px; /* Espaciado mayor entre botones */
+        }
+        button {
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+        button img {
+            width: 180px; /* Tamaño más grande de los botones */
+            height: 180px; /* Asegura la proporcionalidad */
+        }
+        #mensaje {
+            font-size: 20px;
+            color: green;
+            margin-top: 20px;
+            display: none;
+        }
+        .bloqueado {
+            pointer-events: none;
+            opacity: 0.5;
+        }
+        #workImage {
+            width: 500px; /* Tamaño reducido de la imagen */
+            height: auto;
+            margin-top: 20px;
+        }
+        #aviso-inactividad {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            font-size: 3vw;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            z-index: 1000; /* Asegura que el aviso esté por encima de otros elementos */
+        }
+        #aviso-inactividad p {
+            margin: 0;
+            font-size: 2.5vw; /* Ajusta el tamaño del texto */
+        }
+        #aviso-inactividad button {
+            font-size: 2vw;
+            padding: 1vw 2vw;
+            margin-top: 2vh;
+            background-color: #f0f0f0; /* Color de fondo verde */
+            color: black; /* Color del texto */
+            border: none;
+            border-radius: 5px; /* Bordes redondeados */
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #aviso-inactividad button:hover {
+            background-color: #45a049; /* Color de fondo al pasar el mouse */
+        }
+    </style>
+    <!-- Incluir jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>{{ datos['pasos'][0]['instruccion'] }}</h1>
+
+    <!-- Audio -->
+    <audio autoplay>
+        <source src="{{ url_for('static', filename=paso_actual['audio']) }}" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <!-- Imagen -->
+    <img id="workImage" src="{{ datos['pasos'][0]['imagen'] }}" alt="Trabajo en Progreso">
+
+    <!-- Botones -->
+    <div class="button-container">
+        <div>
+            <button id="notDoneButton" onclick="marcarTarea(false)">
+                <img src="static/images/not_done.png" alt="No Hecho">
+            </button>
+            <p>No Hecho</p>
+        </div>
+
+        <div>
+            <button id="doneButton" onclick="marcarTarea(true)">
+                <img src="static/images/done.png" alt="Hecho">
+            </button>
+            <p>Hecho</p>
+        </div>
+    </div>
+
+    <div id="mensaje">¡Gracias por la respuesta!</div>
+    <div id="aviso-inactividad">
+        <p>¿Sigues ahí?</p>
+        <button id="seguir-aqui-btn">Sí, sigo aquí</button>
+    </div>
+    <audio id="audio" src="static/valoracion/gracias.mp3" preload="auto"></audio>
+    <audio id="audio-aviso" src="static/valoracion/aviso.mp3"></audio>
+
+    <script>
+        let tiempoInactividad = 0;
+        const tiempoMaximoInactividad = {{ datos['pasos'][0]['timeout'] }} * 1000;
+        const tiempoParaDespedida = {{ datos['pasos'][0]['timeout'] }} * 1000;
+        let inactividadAvisada = false;
+
+        function reiniciarInactividad() {
+            tiempoInactividad = 0;
+            inactividadAvisada = false;
+            $("#aviso-inactividad").hide();
+            $("#audio-aviso")[0].pause();
+            $("#audio-aviso")[0].currentTime = 0;
+        }
+
+        $(document).on('click', reiniciarInactividad);
+
+        setInterval(function() {
+            tiempoInactividad += 1000;
+
+            if (tiempoInactividad >= tiempoMaximoInactividad && !inactividadAvisada) {
+                $("#audio-aviso")[0].play();
+                $("#aviso-inactividad").show();
+                inactividadAvisada = true;
+            }
+
+            if (tiempoInactividad >= (tiempoMaximoInactividad + tiempoParaDespedida)) {
+                fetch('/obtener_info', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        satisfaccion: "None",
+                        timeout: "Timeout tarea"
+                    })
+                })
+                .then(response => response.json())
+                .then(data => console.log("Respuesta del servidor:", data))
+                .catch(error => console.error("Error:", error));
+
+                $.post("/reset_index", function(data) {
+                    console.log(data.message);
+                    window.location.href = '{{ server_url }}/';
+                });
+            }
+        }, 1000);
+
+        $("#seguir-aqui-btn").click(reiniciarInactividad);
+
+        function marcarTarea(hecho) {
+            // Bloquear los botones
+            $('#doneButton').addClass('bloqueado');
+            $('#notDoneButton').addClass('bloqueado');
+
+            // Mostrar el mensaje y reproducir el audio
+            $('#mensaje').show();
+            $('#audio')[0].play();
+
+            // Definir la URL según la tarea hecha o no hecha
+            const url = hecho ? "/emote_index" : "/reset_index";  // Dependiendo del valor de `hecho`
+            const data = { tareaHecha: hecho };
+
+            // Si no se hizo la tarea, hacer la llamada adicional a /obtener_info
+            if (!hecho) {
+                fetch('/obtener_info', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        satisfaccion: "None",
+                        timeout: "Timeout tarea"
+                    })
+                })
+                .then(response => response.json())
+                .then(data => console.log("Respuesta del servidor:", data))
+                .catch(error => console.error("Error:", error));
+            }
+
+            // Enviar la solicitud POST utilizando jQuery
+            setTimeout(function() {
+                $.post(url, data, function(response) {
+                    console.log(response.message);  // Manejo de la respuesta
+                    window.location.href = '{{ server_url }}/';  // Redirección después del POST
+                });
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

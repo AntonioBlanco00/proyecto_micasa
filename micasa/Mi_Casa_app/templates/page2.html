@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ datos['titulo'] }}</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            font-size: 1.5vw;
+        }
+        .audio-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            position: absolute;
+            top: 0;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 90vw;
+            height: 80vh;
+        }
+        .images-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .images-container img {
+            max-width: 25vw;
+            max-height: 25vh;
+            margin: 2vw;
+            border: 0.5vw solid black;
+        }
+        .btn {
+            padding: 1vw;
+            margin: 0.5vw;
+            cursor: pointer;
+            font-size: 1.5vw;
+        }
+        .anterior {
+            background-color: orange;
+        }
+        .siguiente, .comenzar, .finalizar {
+            background-color: green;
+            color: white;
+        }
+        .finalizado {
+            font-size: 3vw;
+            margin-top: 2vh;
+            display: none;
+        }
+        #aviso-inactividad {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            font-size: 3vw;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+        #aviso-inactividad button {
+            font-size: 2vw;
+            padding: 1vw 2vw;
+            margin-top: 2vh;
+        }
+        /* Estilo para los botones deshabilitados */
+        button.disabled {
+            background-color: grey !important;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    {% if paso_actual is not none %}
+        <div class="audio-container">
+            <audio controls autoplay>
+                <source src="{{ url_for('static', filename=paso_actual['audio']) }}" type="audio/mpeg">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+        </div>
+        <div class="container">
+            <h2>{{ paso_actual['instruccion'] }}</h2>
+            <div class="images-container">
+                {% for imagen in imagenes_mostradas %}
+                    <img src="{{ url_for('static', filename=imagen) }}" alt="Paso {{ loop.index }}">
+                {% endfor %}
+            </div>
+            <div>
+                {% if paso > 0 %}
+                    <button class="btn anterior" onclick="window.location.href='/?paso={{ paso - 1 }}'">Anterior</button>
+                {% endif %}
+                {% if paso < pasos_total - 1 %}
+                    <button class="btn siguiente" onclick="window.location.href='/?paso={{ paso + 1 }}'">Siguiente</button>
+                {% elif paso == pasos_total - 1 %}
+                    <button class="btn finalizar" id="finalizar-btn">FINALIZAR</button>
+                {% endif %}
+            </div>
+        </div>
+        <div id="mensaje-final" class="finalizado">
+            ¡Has completado todos los pasos, enhorabuena!
+        </div>
+    {% else %}
+        <div class="finalizado">
+            ¡Has completado todos los pasos, enhorabuena!
+        </div>
+    {% endif %}
+
+
+
+    <div id="aviso-inactividad" class="finalizado">
+        <p>¿Sigues ahí?</p>
+        <button id="seguir-aqui-btn">Sí, sigo aquí</button>
+    </div>
+
+    <audio id="audio-aviso" src="{{ url_for('static', filename=carpeta_aud + '/aviso.mp3') }}"></audio>
+    <audio id="audio-despedida" src="{{ url_for('static', filename=carpeta_aud + '/despedida.mp3') }}"></audio>
+    <audio id="audio-final" src="{{ url_for('static', filename=carpeta_aud + '/final.mp3') }}" type="audio/mpeg"></audio>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            let tiempoInactividad = 0;
+            const tiempoMaximoInactividad = {{ datos['pasos'][paso_actual['paso']]['timeout']}} * 1000;
+            const tiempoParaDespedida = {{ datos['pasos'][paso_actual['paso']]['timeout']}} * 1000;
+            let inactividadAvisada = false;
+
+            function reiniciarInactividad() {
+                tiempoInactividad = 0;
+                inactividadAvisada = false;
+                $("#aviso-inactividad").hide();
+                $("#audio-aviso")[0].pause();
+                $("#audio-aviso")[0].currentTime = 0;
+            }
+
+            $(document).on('mousemove keydown click', function() {
+                reiniciarInactividad();
+            });
+
+            setInterval(function() {
+                tiempoInactividad += 1000;
+
+                if (tiempoInactividad >= tiempoMaximoInactividad && !inactividadAvisada) {
+                    $("#audio-aviso")[0].play();
+                    $("#aviso-inactividad").show();
+                    inactividadAvisada = true;
+                }
+
+                if (tiempoInactividad >= (tiempoMaximoInactividad + tiempoParaDespedida)) {
+                    $("#audio-despedida")[0].play();
+
+                    // Hacer una solicitud POST cuando se acaba el tiempo
+                    fetch('/obtener_info', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            satisfaccion: "None",
+                            timeout: "Timeout tarea"
+                        })
+                    })
+
+                    setTimeout(function(){
+                        $.post("/reset_index", function(data) {
+                            console.log(data.message);
+                            window.location.href = '{{ server_url }}/';
+                        });
+                    }, 1000); // Espera 5 segundos tras la despedida para reiniciar el índice y redirigir
+                }
+            }, 1000);
+
+            $("#finalizar-btn").click(function(){
+                // Deshabilitar todos los botones
+                $("button").addClass("disabled").prop("disabled", true);
+
+                $(".images-container img").each(function(){
+                    let src = $(this).attr("src");
+                    if (!src.includes("bwt_")) {
+                        let partes = src.split('/');
+                        let nombre_archivo = partes[partes.length - 1];
+                        let nombre_base = "bwt_" + nombre_archivo;
+                        partes[partes.length - 1] = nombre_base;
+                        $(this).attr("src", partes.join('/'));
+                    }
+                });
+                $("#mensaje-final").show();
+
+                let audioFinal = document.getElementById("audio-final");
+                audioFinal.play();
+
+                setTimeout(function(){
+                    $.post("/emote_index", function(data) {
+                        console.log(data.message);
+                        window.location.href = '{{ server_url }}/';
+                    });
+                }, 5000); // Espera 5 segundos tras la despedida para reiniciar el índice y redirigir
+
+                // Volver a habilitar los botones después de 5 segundos
+                setTimeout(function(){
+                    $("button").removeClass("disabled").prop("disabled", false);
+                }, 5000);
+            });
+
+            $("#seguir-aqui-btn").click(function() {
+                reiniciarInactividad();
+            });
+        });
+    </script>
+</body>
+</html>

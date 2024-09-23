@@ -1,0 +1,10 @@
+Component webots_ubitrack_controller
+{
+    Communications
+    {
+    };
+    language python;
+    gui Qt(QWidget);
+    options dsr;
+};
+

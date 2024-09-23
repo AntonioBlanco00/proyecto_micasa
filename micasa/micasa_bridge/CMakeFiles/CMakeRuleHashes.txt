@@ -1,0 +1,6 @@
+# Hashes of file build rules.
+647cbf6aaca59fc0fbb5970ded0f45c8 src/CMakeFiles/micasa_bridge_autogen
+f692506f43637d4980e3571b2e81c634 src/Camera360RGB.cpp
+5b2c93db427c51a6e0959acc90568733 src/CommonBehavior.cpp
+55ce616e5714c2b95893480334e93d64 src/Person.cpp
+0f07b3484bef84f1ada303626b389d74 src/VisualElements.cpp

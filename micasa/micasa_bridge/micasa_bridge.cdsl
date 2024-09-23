@@ -1,0 +1,11 @@
+import "VisualElements.idsl";
+
+Component micasa_bridge
+{
+    Communications
+    {
+        implements VisualElements;
+    };
+    language Cpp11;
+};
+
