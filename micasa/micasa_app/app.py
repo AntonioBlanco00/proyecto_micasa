@@ -178,7 +178,7 @@ def emote_index():
 
 
 html_pages = [
-    'page1_back.html',
+    'page1.html',
     'page2.html',
     'page3.html',
     'page4.html'
