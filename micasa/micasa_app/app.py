@@ -57,26 +57,62 @@ emo_data = None
 #
 #     return datos
 
+# def obtener_datos_desde_csv(archivo_csv, audiof):
+#     datos = {"titulo": "", "pasos": []}
+#
+#     with open(archivo_csv, 'r', encoding='utf-8') as csvfile:
+#         reader = csv.DictReader(csvfile)
+#         filas = list(reader)  # Convertir el reader a una lista para contar las filas
+#
+#     # Manejo general para otros archivos CSV
+#     for row in filas:
+#         if row['Titulo']:
+#             datos['titulo'] = row['Titulo']
+#         paso = {
+#             "paso": int(row['Paso']),
+#             "instruccion": row['Instruccion'],
+#             "imagen": row['Imagen'],
+#             "bwt_imagen": row['Imagen'],
+#             "audio": f"{audiof}/paso{row['Paso']}.mp3",  # Asegúrate de que esta ruta sea correcta
+#             "timeout": int(row['Timeout']) if row['Timeout'] else 60
+#         }
+#         datos['pasos'].append(paso)
+#
+#     return datos
+
 def obtener_datos_desde_csv(archivo_csv, audiof):
     datos = {"titulo": "", "pasos": []}
 
-    with open(archivo_csv, 'r', encoding='utf-8') as csvfile:
-        reader = csv.DictReader(csvfile)
-        filas = list(reader)  # Convertir el reader a una lista para contar las filas
+    try:
+        with open(archivo_csv, 'r', encoding='utf-8') as csvfile:
+            reader = csv.DictReader(csvfile)
+            filas = list(reader)  # Convertir el reader a una lista para contar las filas
 
-    # Manejo general para otros archivos CSV
-    for row in filas:
-        if row['Titulo']:
-            datos['titulo'] = row['Titulo']
-        paso = {
-            "paso": int(row['Paso']),
-            "instruccion": row['Instruccion'],
-            "imagen": row['Imagen'],
-            "bwt_imagen": row['Imagen'],
-            "audio": f"{audiof}/paso{row['Paso']}.mp3",  # Asegúrate de que esta ruta sea correcta
-            "timeout": int(row['Timeout']) if row['Timeout'] else 60
-        }
-        datos['pasos'].append(paso)
+            if not filas:  # Si no hay filas en el CSV (está vacío)
+                print(f"El archivo CSV '{archivo_csv}' está vacío.")
+                return datos  # Retorna los datos vacíos para evitar errores en el HTML
+
+            # Procesar las filas del CSV
+            for row in filas:
+                if row['Titulo']:
+                    datos['titulo'] = row['Titulo']
+                paso = {
+                    "paso": int(row['Paso']),
+                    "instruccion": row['Instruccion'],
+                    "imagen": row['Imagen'],
+                    "bwt_imagen": row['Imagen'],
+                    "audio": f"{audiof}/paso{row['Paso']}.mp3",  # Asegúrate de que esta ruta sea correcta
+                    "timeout": int(row['Timeout']) if row['Timeout'] else 60
+                }
+                datos['pasos'].append(paso)
+
+    except FileNotFoundError:
+        print(f"El archivo CSV '{archivo_csv}' no fue encontrado.")
+        return datos  # Retorna datos vacíos si el archivo no existe
+
+    except Exception as e:
+        print(f"Ocurrió un error al leer el archivo CSV: {str(e)}")
+        return datos  # Manejar cualquier otro error inesperado
 
     return datos
 
@@ -178,37 +214,61 @@ def emote_index():
 
 
 html_pages = [
-    'page1.html',
+    'page1_back.html',
     'page2.html',
     'page3.html',
     'page4.html'
 ]
 
+# @app.route('/')
+# def index():
+#
+#     print("CURRENT PAGE ES", current_page_index)
+#     current_page = html_pages[current_page_index]
+#
+#     archivo_csv = config.archivo_csv
+#
+#     # print('--->',config.archivo_csv)
+#     # if config.archivo_csv == 'tareas/empty.csv':
+#          # return render_template(html_pages[0])
+#
+#     paso = request.args.get('paso', default=0, type=int)
+#     datos = obtener_datos_desde_csv(archivo_csv, audiof)
+#
+#     paso_actual = datos['pasos'][paso] if paso < len(datos['pasos']) else datos['pasos'][0]
+#     pasos_total = len(datos['pasos'])
+#
+#     variables_html = manejar_logica_condicional(datos, paso_actual, pasos_total)
+#     variables_html['datos'] = datos  # Añadir 'datos' al diccionario de variables
+#
+#     variables_html['server_url'] = f"http://{request.host}"
+#     variables_html['carpeta_aud'] = f"{audiof}"
+#
+#     return render_template(current_page, paso=paso, **variables_html)
+
 @app.route('/')
 def index():
-
     print("CURRENT PAGE ES", current_page_index)
     current_page = html_pages[current_page_index]
 
     archivo_csv = config.archivo_csv
-
-    # print('--->',config.archivo_csv)
-    # if config.archivo_csv == 'tareas/empty.csv':
-         # return render_template(html_pages[0])
-
     paso = request.args.get('paso', default=0, type=int)
     datos = obtener_datos_desde_csv(archivo_csv, audiof)
+
+    # Verificar si los datos son vacíos (CSV vacío o error en la lectura) para que no pete
+    if not datos['pasos']:
+        return render_template('page1_back.html', mensaje="No hay pasos disponibles en el archivo CSV.")
 
     paso_actual = datos['pasos'][paso] if paso < len(datos['pasos']) else datos['pasos'][0]
     pasos_total = len(datos['pasos'])
 
     variables_html = manejar_logica_condicional(datos, paso_actual, pasos_total)
     variables_html['datos'] = datos  # Añadir 'datos' al diccionario de variables
-
     variables_html['server_url'] = f"http://{request.host}"
     variables_html['carpeta_aud'] = f"{audiof}"
 
     return render_template(current_page, paso=paso, **variables_html)
+
 
 def actualizar_config(nueva_ruta):
     archivo_config = 'config.py'

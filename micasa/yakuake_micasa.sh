@@ -1,7 +1,7 @@
 #!/bin/bash
 # Resto de tu script
 
-sleep 60
+#sleep 60
 # Abrir Yakuake
 yakuake &
 
