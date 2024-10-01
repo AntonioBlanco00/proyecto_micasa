@@ -1,12 +1,10 @@
 Titulo,Ubicación,Paso,Instruccion,Imagen,Timeout
-Poner la lavadora,cocina,0,Prueba 0,Poner_la_lavadora/image0.png,10
-,,1,Prueba 1,Poner_la_lavadora/image1.png,11
-,,2,Prueba 2,Poner_la_lavadora/image2.png,12
-,,3,Prueba 3,Poner_la_lavadora/image3.png,13
-,,4,Prueba 4,Poner_la_lavadora/image4.png,14
-,,5,Prueba 5,Poner_la_lavadora/image5.png,15
-,,6,Prueba 6,Poner_la_lavadora/image6.png,16
-,,7,Prueba 7,Poner_la_lavadora/image7.png,17
-,,8,Prueba 8,Poner_la_lavadora/image8.png,18
-,,9,Prueba 9,Poner_la_lavadora/image9.png,19
-,,10,Prueba 10,Poner_la_lavadora/image10.png,20
+Poner la lavadora,cocina,0,Coge el cesto con la ropa sucia,Poner_la_lavadora/image0.png,120
+,,1,Abre la lavadora,Poner_la_lavadora/image1.png,120
+,,2,Mete la ropa sucia en la lavadora,Poner_la_lavadora/image2.png,120
+,,3,Coge la caja con las bolsitas de la lavadora,Poner_la_lavadora/image3.png,120
+,,4,Coge una bolsita,Poner_la_lavadora/image4.png,120
+,,5,Mete la bolsita en la lavadora,Poner_la_lavadora/image5.png,120
+,,6,Cierra la lavadora,Poner_la_lavadora/image6.png,120
+,,7,Gira la rueda al programa con el punto rojo,Poner_la_lavadora/image8.png,120
+,,8,Pulsa el botón de inicio,Poner_la_lavadora/image10.png,120

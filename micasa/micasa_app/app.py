@@ -116,7 +116,7 @@ def obtener_datos_desde_csv(archivo_csv, audiof):
 
     return datos
 
-def obtener_imagenes_mostradas(datos, paso_actual, cantidad=5):
+def obtener_imagenes_mostradas(datos, paso_actual, cantidad=3):
     paso_actual_numero = paso_actual['paso']
     total_pasos = len(datos['pasos'])
 
@@ -126,12 +126,12 @@ def obtener_imagenes_mostradas(datos, paso_actual, cantidad=5):
     elif paso_actual_numero <= 1:
         inicio = 0
         fin = cantidad
-    elif paso_actual_numero >= total_pasos - 2:
+    elif paso_actual_numero >= total_pasos - 1:
         inicio = total_pasos - cantidad
         fin = total_pasos
     else:
         inicio = paso_actual_numero - 1
-        fin = paso_actual_numero + 4
+        fin = paso_actual_numero + 2
 
     inicio = max(0, inicio)
     fin = min(total_pasos, fin)

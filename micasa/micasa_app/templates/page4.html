@@ -31,8 +31,8 @@
             cursor: pointer;
         }
         button img {
-            width: 180px; /* Tamaño más grande de los botones */
-            height: 180px; /* Asegura la proporcionalidad */
+            width: 140px; /* Tamaño más grande de los botones */
+            height: 140px; /* Asegura la proporcionalidad */
         }
         #mensaje {
             font-size: 20px;
@@ -45,7 +45,7 @@
             opacity: 0.5;
         }
         #workImage {
-            width: 500px; /* Tamaño reducido de la imagen */
+            width: 350px; /* Tamaño reducido de la imagen */
             height: auto;
             margin-top: 20px;
         }
@@ -105,14 +105,14 @@
             <button id="notDoneButton" onclick="marcarTarea(false)">
                 <img src="static/images/not_done.png" alt="No Hecho">
             </button>
-            <p>No Hecho</p>
+            <p><strong>NO HECHO</strong></p>
         </div>
 
         <div>
             <button id="doneButton" onclick="marcarTarea(true)">
                 <img src="static/images/done.png" alt="Hecho">
             </button>
-            <p>Hecho</p>
+            <p><strong>HECHO</strong></p>
         </div>
     </div>
 
@@ -211,6 +211,42 @@
                 });
             }, 3000);
         }
+
+        // Ajustar el tamaño de la imagen según sus dimensiones
+        $(document).ready(function() {
+            const image = $("#workImage");
+
+            // Comprobar las dimensiones de la imagen
+            const checkImageSize = function() {
+                const width = image[0].naturalWidth; // ancho de la imagen
+                const height = image[0].naturalHeight; // alto de la imagen
+
+                // Imprimir las dimensiones en la consola
+                console.log("Dimensiones de la imagen:", width, "x", height);
+
+                if (width === 500 && height === 500) {
+                    // Estilos para imágenes de 500x500
+                    image.css({
+                        width: '350px',
+                        height: 'auto'
+                    });
+                } else if (width === 1000 && height === 500) {
+                    // Estilos para imágenes de 1000x500
+                    image.css({
+                        width: '700px',
+                        height: 'auto'
+                    });
+                }
+            };
+
+            // Verificar si la imagen ya está cargada
+            if (image[0].complete) {
+                checkImageSize();
+            } else {
+                // Si no está cargada, esperar al evento 'load'
+                image.on('load', checkImageSize);
+            }
+        });
     </script>
 </body>
 </html>
