@@ -53,8 +53,8 @@ class SpecificWorker(GenericWorker):
         self.Period = 1500
 
         # YOU MUST SET AN UNIQUE ID FOR THIS AGENT IN YOUR DEPLOYMENT. "_CHANGE_THIS_ID_" for a valid unique integer
-        self.agent_id = 752
-        self.g = DSRGraph(0, "pythonAgent", self.agent_id)
+        #self.agent_id = 752
+        #self.g = DSRGraph(0, "pythonAgent", self.agent_id)
 
         try:
             # signals.connect(self.g, signals.UPDATE_NODE_ATTR, self.update_node_att)
@@ -105,6 +105,9 @@ class SpecificWorker(GenericWorker):
         self.port = params["port"]
         self.user = params["user"]
         self.csv_path = params["csv_path"]
+
+        self.agent_id = params["agent_id"]
+        self.g = DSRGraph(0, "pythonAgent", int(self.agent_id))
 
         self.task_list = self.csv_to_list(self.csv_path)
 
