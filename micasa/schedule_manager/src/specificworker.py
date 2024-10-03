@@ -147,6 +147,7 @@ class SpecificWorker(GenericWorker):
         self.actual_day = time.strftime("%A")
         print(f"Día actual: {self.actual_day}", f"Hora actual: {self.actual_time}")
         # ------------------------------ UPDATE TASKS ------------------------------------------
+        # Aquí hay que añadir también que se generen las imágenes si se plantea que ellos añadan más.
         # self.update_tasks(self.update_hour)
 
         # Filter task_list from csv by execution hour window

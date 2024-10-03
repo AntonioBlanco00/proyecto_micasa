@@ -179,7 +179,7 @@ class SpecificWorker(GenericWorker):
         # print('compute')
         # print(self.sio, 'perrrooooo funcionaaaa')
         now_hrate = datetime.datetime.now()
-        if (now_hrate - self.heartrate_time).total_seconds() >= 10:
+        if (now_hrate - self.heartrate_time).total_seconds() >= 600:
             self.insert_heartrate()
             self.heartrate_time = now_hrate
         height, width, channels = self.img.shape
