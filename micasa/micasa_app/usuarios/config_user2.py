@@ -1,2 +1,2 @@
 # config_user2.py
-archivo_csv = 'tareas/hacer_cama.csv'
+archivo_csv = 'tareas/poner_lavadora.csv'

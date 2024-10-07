@@ -395,7 +395,7 @@ class SpecificWorker(GenericWorker):
     ###########################################################################################
     # A la función le pasas el nombre del csv de la secuencia/tarea, incluyendo el .csv
     def actualizar_config(self, nueva_ruta):
-        archivo_config = '../Mi_Casa_app/usuarios/config_user' + self.user + '.py'
+        archivo_config = '../micasa_app/usuarios/config_user' + self.user + '.py'
         print("ESCRIBIENDO EN: " + archivo_config)
         # Ejemplo: nueva_ruta = './Mi_Casa_app/hacer_cama.csv'
         nueva_ruta = 'tareas/' + nueva_ruta
