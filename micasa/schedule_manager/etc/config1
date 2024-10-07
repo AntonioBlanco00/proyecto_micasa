@@ -4,7 +4,7 @@ ip = localhost
 port = 5000
 user = 1
 agent_id = 752
-csv_path = ../Mi_Casa_app/usuarios/rutina_diaria_user1.csv
+csv_path = ../micasa_app/usuarios/rutina_diaria_user1.csv
 update_hour = 02:00:00
 
 

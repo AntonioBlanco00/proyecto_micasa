@@ -95,6 +95,7 @@ class SpecificWorker(GenericWorker):
         }
 
 
+
     def __del__(self):
         """Destructor"""
 
@@ -395,23 +396,59 @@ class SpecificWorker(GenericWorker):
     ###########################################################################################
     # A la función le pasas el nombre del csv de la secuencia/tarea, incluyendo el .csv
     def actualizar_config(self, nueva_ruta):
-        archivo_config = '../micasa_app/usuarios/config_user' + self.user + '.py'
-        print("ESCRIBIENDO EN: " + archivo_config)
-        # Ejemplo: nueva_ruta = './Mi_Casa_app/hacer_cama.csv'
-        nueva_ruta = 'tareas/' + nueva_ruta
-        # Leer el contenido actual del archivo config.py
-        with open(archivo_config, 'r') as file:
-            lineas = file.readlines()
+        try:
+            directorio_tareas = os.path.join('..', 'micasa_app', 'tareas')
+            ruta_csv = os.path.join(directorio_tareas, nueva_ruta)
 
-        # Escribir la nueva ruta en el archivo
-        with open(archivo_config, 'w') as file:
-            for linea in lineas:
-                if linea.startswith('archivo_csv'):
-                    # Reemplazar la línea con la nueva ruta
-                    file.write(f'archivo_csv = \'{nueva_ruta}\'\n')
-                else:
-                    # Mantener las demás líneas sin cambios
-                    file.write(linea)
+            # Comprobar si el archivo CSV existe
+            if not os.path.exists(ruta_csv):
+                # Si no existe, usar un archivo CSV predeterminado
+                print(f"El archivo {nueva_ruta} no existe, cargando archivo predeterminado.")
+                ruta_csv = os.path.join(directorio_tareas, 'tarea_test.csv')
+
+            archivo_config = '../micasa_app/usuarios/config_user' + self.user + '.py'
+            print("ESCRIBIENDO EN: " + archivo_config)
+
+            # Leer el contenido actual del archivo config_user.py
+            with open(archivo_config, 'r') as file:
+                lineas = file.readlines()
+
+            # Escribir la nueva ruta en el archivo de configuración
+            with open(archivo_config, 'w') as file:
+                for linea in lineas:
+                    if linea.startswith('archivo_csv'):
+                        # Reemplazar la línea con la nueva ruta (ya sea la proporcionada o la predeterminada)
+                        file.write(f"archivo_csv = '{ruta_csv}'\n")
+                    else:
+                        # Mantener las demás líneas sin cambios
+                        file.write(linea)
+
+            print("Archivo actualizado correctamente.")
+
+        except FileNotFoundError:
+            print(f"Error: No se encontró el archivo {archivo_config}.")
+        except Exception as e:
+            print(f"Ocurrió un error al actualizar el archivo: {e}")
+
+
+
+        # archivo_config = '../micasa_app/usuarios/config_user' + self.user + '.py'
+        # print("ESCRIBIENDO EN: " + archivo_config)
+        # # Ejemplo: nueva_ruta = './Mi_Casa_app/hacer_cama.csv'
+        # nueva_ruta = 'tareas/' + nueva_ruta
+        # # Leer el contenido actual del archivo config.py
+        # with open(archivo_config, 'r') as file:
+        #     lineas = file.readlines()
+        #
+        # # Escribir la nueva ruta en el archivo
+        # with open(archivo_config, 'w') as file:
+        #     for linea in lineas:
+        #         if linea.startswith('archivo_csv'):
+        #             # Reemplazar la línea con la nueva ruta
+        #             file.write(f'archivo_csv = \'{nueva_ruta}\'\n')
+        #         else:
+        #             # Mantener las demás líneas sin cambios
+        #             file.write(linea)
 
     # Function to save the updated task to the CSV file
     def save_updated_task(self, task):
