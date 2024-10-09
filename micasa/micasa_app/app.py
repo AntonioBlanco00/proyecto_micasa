@@ -7,6 +7,10 @@ from flask_socketio import SocketIO, emit
 import os
 import subprocess
 
+from watchdog.observers import Observer
+from watchdog.events import FileSystemEventHandler
+import signal
+
 #Imports config
 from usuarios import config_user1
 from usuarios import config_user2
@@ -21,13 +25,19 @@ config = None
 
 if config_module == "config1":
     config = config_user1
+    config_help = "config_user1"
     audiof = "audio1"
+    port = 5000
 elif config_module == "config2":
     config = config_user2
+    config_help = "config_user2"
     audiof = "audio2"
+    port = 5001
 elif config_module == "config3":
     config = config_user3
+    config_help = "config_user3"
     audiof = "audio3"
+    port = 5002
 
 app = Flask(__name__)
 subprocess.run(["python3", "generar_audios.py", config_module])
@@ -37,6 +47,31 @@ socketio = SocketIO(app)
 
 current_page_index = 0
 emo_data = None
+
+
+# Clase para manejar cambios en los archivos de configuración
+class ConfigChangeHandler(FileSystemEventHandler):
+    def __init__(self, config_file):
+        self.config_file = config_file
+
+    def on_modified(self, event):
+        if event.src_path == self.config_file:
+            print(f"Archivo de configuración {self.config_file} ha sido modificado. Reiniciando servidor...")
+            flask_pid = os.getpid() # Asegúrate de tener una forma de acceder al PID del proceso Flask
+            # Llama al script de reinicio con el PID del proceso Flask
+            subprocess.Popen(['python3', 'restart_flask.py', str(flask_pid), str(config_module), str(port)])  # Pasar el PID como argumento
+
+            #CAMBIAR PROBAR POR SERVICIO O ALGO ASI
+
+        # Ruta de archivo de configuración correspondiente al servidor actual
+config_file_path = os.path.join("usuarios", f"{config_help}.py")
+print(config_file_path, "----------------------------------------------")
+
+# Inicia el observador
+observer = Observer()
+event_handler = ConfigChangeHandler(config_file_path)
+observer.schedule(event_handler, path=os.path.dirname(config_file_path), recursive=False)
+observer.start()
 
 # def obtener_datos_desde_csv(archivo_csv, audiof):
 #     datos = {"titulo": "", "pasos": []}
@@ -342,6 +377,12 @@ def get_valoracion():
 if __name__ == '__main__':
     #app.run(host='0.0.0.0', debug=True)  # Para poder conectarse remotamente, por ejemplo desde el móvil.
     #socketio.run(app, host='0.0.0.0', debug=True, allow_unsafe_werkzeug=True)
-    port = int(sys.argv[2]) if len(sys.argv) > 2 else 5000
-    socketio.run(app, host='0.0.0.0', port=port, debug=True, allow_unsafe_werkzeug=True)
+    # port = int(sys.argv[2]) if len(sys.argv) > 2 else 5000
+    # socketio.run(app, host='0.0.0.0', port=port, debug=True, allow_unsafe_werkzeug=True)
+    try:
+        port = int(sys.argv[2]) if len(sys.argv) > 2 else 5000
+        socketio.run(app, host='0.0.0.0', port=port, debug=False, allow_unsafe_werkzeug=True)
+    finally:
+        observer.stop()
+        observer.join()
 

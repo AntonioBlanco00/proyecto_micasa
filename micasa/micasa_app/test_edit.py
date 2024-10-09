@@ -1,24 +1,38 @@
-import re
-# FUNCIONA A LA PERFECCIÓN LA FUNCIÓN
-def actualizar_config(nueva_ruta):
-    archivo_config = 'config.py'
-
-    # Leer el contenido actual del archivo config.py
-    with open(archivo_config, 'r') as file:
-        lineas = file.readlines()
-
-    # Escribir la nueva ruta en el archivo
-    with open(archivo_config, 'w') as file:
-        for linea in lineas:
-            if linea.startswith('archivo_csv'):
-                # Reemplazar la línea con la nueva ruta
-                file.write(f'archivo_csv = \'{nueva_ruta}\'\n')
-            else:
-                # Mantener las demás líneas sin cambios
-                file.write(linea)
+import os
+import time
+from watchdog.observers import Observer
+from watchdog.events import FileSystemEventHandler
 
 
-if __name__ == '__main__':
-    nueva_ruta = './Mi_Casa_app/hacer_cama.csv'  # Cambia esto por la nueva ruta que quieras
-    actualizar_config(nueva_ruta)
-    print(f'La ruta del archivo CSV ha sido actualizada a: {nueva_ruta}')
+class ChangeHandler(FileSystemEventHandler):
+    def on_modified(self, event):
+        # Definir la ruta relativa
+        relative_path = 'usuarios/config_user1.py'
+        # Obtener la ruta absoluta basada en el directorio actual
+        absolute_path = os.path.join(os.getcwd(), relative_path)
+
+        if event.src_path == absolute_path:
+            print(f"Archivo modificado: {event.src_path}")
+
+
+if __name__ == "__main__":
+    # Definir la ruta relativa
+    relative_path = 'usuarios'
+    # Obtener la ruta absoluta basada en el directorio actual
+    path = os.path.join(os.getcwd(), relative_path)
+
+    event_handler = ChangeHandler()
+
+    observer = Observer()
+    observer.schedule(event_handler, path=path, recursive=False)
+
+    observer.start()
+    print(f"Observando cambios en: {os.path.join(os.getcwd(), 'usuarios/config_user1.py')}")
+
+    try:
+        while True:
+            time.sleep(1)  # Mantiene el script en ejecución
+    except KeyboardInterrupt:
+        observer.stop()
+    observer.join()
+

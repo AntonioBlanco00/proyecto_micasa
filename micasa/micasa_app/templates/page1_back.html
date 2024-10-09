@@ -17,6 +17,7 @@
         // Función que envía una solicitud POST a /new_index y luego redirige
         function handleClick() {
             console.log("Handle click event triggered");
+            console.log('{{ server_url }}/')
 
             fetch('/new_index', {
                 method: 'POST',
